@@ -17,12 +17,11 @@
  *  limitations under the License.
  */
 
-package pro.obydux.huskhomes.gui.listener;
+package win.obydux.huskhomes.menu.listener;
 
 import net.william278.huskhomes.event.HomeListEvent;
 import net.william278.huskhomes.event.WarpListEvent;
-import pro.obydux.huskhomes.gui.HuskHomesGui;
-import pro.obydux.huskhomes.gui.menu.ListMenu;
+import win.obydux.huskhomes.menu.menu.ListMenu;
 import net.william278.huskhomes.position.Home;
 import net.william278.huskhomes.user.OnlineUser;
 import org.bukkit.event.EventHandler;
@@ -30,9 +29,9 @@ import org.bukkit.event.Listener;
 import org.jetbrains.annotations.NotNull;
 
 public class ListListener implements Listener {
-    private final HuskHomesGui plugin;
+    private final win.obydux.huskhomes.menu.HuskHomesMenu plugin;
 
-    public ListListener(@NotNull HuskHomesGui plugin) {
+    public ListListener(@NotNull win.obydux.huskhomes.menu.HuskHomesMenu plugin) {
         this.plugin = plugin;
     }
 

@@ -17,7 +17,7 @@
  *  limitations under the License.
  */
 
-package pro.obydux.huskhomes.gui.config;
+package win.obydux.huskhomes.menu.config;
 
 import net.william278.annotaml.YamlComment;
 import net.william278.annotaml.YamlFile;
@@ -29,7 +29,7 @@ import java.util.Optional;
 
 @YamlFile(header = """
         ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-        ┃     HuskHomesGUI Config      ┃
+        ┃     HuskHomesMenu Config      ┃
         ┃    Developed by William278   ┃
         ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
         ┗╸ Information: https://william278.net/project/huskhomesgui""")
@@ -38,7 +38,7 @@ public class Settings {
     @YamlKey("language")
     private String language = "en-gb";
 
-    @YamlComment("Options for the home/warp list menu GUI")
+    @YamlComment("Options for the home/warp list menu")
     @YamlKey("menu.rows")
     private int menuSize = 4;
     @YamlKey("menu.show_controls")

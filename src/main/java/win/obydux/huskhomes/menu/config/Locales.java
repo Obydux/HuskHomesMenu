@@ -17,12 +17,11 @@
  *  limitations under the License.
  */
 
-package pro.obydux.huskhomes.gui.config;
+package win.obydux.huskhomes.menu.config;
 
 import de.themoep.minedown.adventure.MineDown;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import net.william278.annotaml.YamlFile;
-import pro.obydux.huskhomes.gui.HuskHomesGui;
 import org.apache.commons.text.StringEscapeUtils;
 import org.jetbrains.annotations.NotNull;
 
@@ -32,7 +31,7 @@ import java.util.regex.Pattern;
 
 @YamlFile(header = """
         ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-        ┃     HuskHomesGui Locales     ┃
+        ┃     HuskHomesMenu Locales     ┃
         ┃    Developed by William278   ┃
         ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
         ┗╸ Formatted in MineDown: https://github.com/Phoenix616/MineDown""",
@@ -148,7 +147,7 @@ public class Locales {
      * @return the wrapped string
      * @throws NullPointerException if the string is null
      */
-    public static String textWrap(@NotNull HuskHomesGui plugin, @NotNull String string) {
+    public static String textWrap(@NotNull win.obydux.huskhomes.menu.HuskHomesMenu plugin, @NotNull String string) {
         // ([\x00-\xFF]{1,2}|.?){27}
         Matcher matcher = Pattern.compile("([\\x00-\\xFF]{1,2}|.?){"+ plugin.getSettings().getTextWrapLength() +"}").matcher(string);
         StringBuilder out = new StringBuilder();

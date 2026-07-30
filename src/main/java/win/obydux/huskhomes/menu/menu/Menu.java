@@ -17,12 +17,11 @@
  *  limitations under the License.
  */
 
-package pro.obydux.huskhomes.gui.menu;
+package win.obydux.huskhomes.menu.menu;
 
 import de.themoep.inventorygui.InventoryGui;
 import net.william278.huskhomes.api.HuskHomesAPI;
-import pro.obydux.huskhomes.gui.HuskHomesGui;
-import pro.obydux.huskhomes.gui.config.Settings;
+import win.obydux.huskhomes.menu.config.Settings;
 import net.william278.huskhomes.position.Home;
 import net.william278.huskhomes.position.SavedPosition;
 import net.william278.huskhomes.position.Warp;
@@ -35,13 +34,13 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 public abstract class Menu {
-    private static final String TAG_KEY = "huskhomesgui:icon";
+    private static final String TAG_KEY = "huskhomesmenu:icon";
 
-    protected final HuskHomesGui plugin;
+    protected final win.obydux.huskhomes.menu.HuskHomesMenu plugin;
     protected final HuskHomesAPI api;
     private final InventoryGui gui;
 
-    protected Menu(@NotNull HuskHomesGui plugin, @NotNull String title, @NotNull String[] layout) {
+    protected Menu(@NotNull win.obydux.huskhomes.menu.HuskHomesMenu plugin, @NotNull String title, @NotNull String[] layout) {
         this.plugin = plugin;
         this.api = HuskHomesAPI.getInstance();
         this.gui = new InventoryGui(plugin, title, layout);

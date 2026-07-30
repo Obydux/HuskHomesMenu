@@ -1,11 +1,11 @@
 plugins {
     `java-library`
-    id("com.gradleup.shadow") version "9.0.0-beta17"
-    id("org.cadixdev.licenser") version "0.6.1"
-    id("org.ajoberstar.grgit") version "5.3.2"
+    id("com.gradleup.shadow") version "9.6.1"
+    id("net.neoforged.licenser") version "0.7.5"
+    id("org.ajoberstar.grgit") version "5.3.3"
 }
 
-group = "pro.obydux"
+group = "win.obydux"
 version = "${extra["plugin_version"]}${versionMetadata()}"
 
 repositories {
@@ -18,24 +18,24 @@ repositories {
     maven("https://repo.codemc.io/repository/maven-snapshots/")
     maven("https://repo.william278.net/releases/")
     maven("https://repo.william278.net/snapshots/")
-    maven("https://repo.spaceio.xyz/repository/maven-snapshots/")
+    maven("https://repo.obydux.win/snapshots/")
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.7-R0.1-SNAPSHOT")
-    compileOnly("org.jetbrains:annotations:26.0.2")
-    compileOnly("net.william278.huskhomes:huskhomes-bukkit:4.9.9-dcf38e6")
+    compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    compileOnly("org.jetbrains:annotations:26.1.0")
+    compileOnly("net.william278.huskhomes:huskhomes-bukkit:4.11-ab42970")
 
-    implementation("de.themoep:inventorygui:1.6.5-SNAPSHOT")
-    implementation("org.apache.commons:commons-text:1.13.1")
-    implementation("net.william278:minedown:1.8.2")
+    implementation("de.themoep:inventorygui:1.6.6-SNAPSHOT")
+    implementation("org.apache.commons:commons-text:1.15.0")
+    implementation("de.themoep:minedown-adventure:1.7.6-SNAPSHOT")
     implementation("dev.dejvokep:boosted-yaml:1.3.7")
-    implementation("net.wesjd:anvilgui:2.0.3-SNAPSHOT")
+    implementation("net.wesjd:anvilgui:2.0.4-SNAPSHOT")
     implementation("net.william278:annotaml:2.0.7-4f14c61")
-    implementation("net.william278:desertwell:2.0.4")
+    implementation("net.william278:desertwell:2.0.6-cbab27c")
 
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.13.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.13.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:6.1.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:6.1.1")
 }
 
 tasks.compileJava {
@@ -89,7 +89,7 @@ license {
     newLine(true)
 }
 
-logger.lifecycle("Building HuskHomesGUI ${version} by William278 & Obydux")
+logger.lifecycle("Building HuskHomesMenu ${version} by William278 & Obydux")
 
 @SuppressWarnings("GrMethodMayBeStatic")
 fun versionMetadata(): String {

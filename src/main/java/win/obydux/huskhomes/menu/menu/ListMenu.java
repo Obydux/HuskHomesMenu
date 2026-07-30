@@ -17,10 +17,9 @@
  *  limitations under the License.
  */
 
-package pro.obydux.huskhomes.gui.menu;
+package win.obydux.huskhomes.menu.menu;
 
 import de.themoep.inventorygui.*;
-import pro.obydux.huskhomes.gui.HuskHomesGui;
 import net.william278.huskhomes.position.Home;
 import net.william278.huskhomes.position.SavedPosition;
 import net.william278.huskhomes.position.Warp;
@@ -36,7 +35,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
-import static pro.obydux.huskhomes.gui.config.Locales.textWrap;
+import static win.obydux.huskhomes.menu.config.Locales.textWrap;
 
 /**
  * A menu for displaying a list of saved positions
@@ -51,31 +50,31 @@ public class ListMenu<T extends SavedPosition> extends Menu {
     private final int pageNumber = 1;
 
     @NotNull
-    public static ListMenu<Home> homes(@NotNull HuskHomesGui plugin, @NotNull List<Home> homes, @NotNull User owner) {
+    public static ListMenu<Home> homes(@NotNull win.obydux.huskhomes.menu.HuskHomesMenu plugin, @NotNull List<Home> homes, @NotNull User owner) {
         return new ListMenu<>(plugin, homes, Type.HOME,
                 plugin.getLocales().getLocale("homes_menu_title", owner.getUsername()));
     }
 
     @NotNull
-    public static ListMenu<Home> publicHomes(@NotNull HuskHomesGui plugin, @NotNull List<Home> homes) {
+    public static ListMenu<Home> publicHomes(@NotNull win.obydux.huskhomes.menu.HuskHomesMenu plugin, @NotNull List<Home> homes) {
         return new ListMenu<>(plugin, homes, Type.PUBLIC_HOME,
                 plugin.getLocales().getLocale("public_homes_menu_title"));
     }
 
     @NotNull
-    public static ListMenu<Warp> warps(@NotNull HuskHomesGui plugin, @NotNull List<Warp> warps) {
+    public static ListMenu<Warp> warps(@NotNull win.obydux.huskhomes.menu.HuskHomesMenu plugin, @NotNull List<Warp> warps) {
         return new ListMenu<>(plugin, warps, Type.WARP,
                 plugin.getLocales().getLocale("warps_menu_title"));
     }
 
-    private ListMenu(@NotNull HuskHomesGui plugin, @NotNull List<T> positions, @NotNull ListMenu.Type type, @NotNull String title) {
+    private ListMenu(@NotNull win.obydux.huskhomes.menu.HuskHomesMenu plugin, @NotNull List<T> positions, @NotNull ListMenu.Type type, @NotNull String title) {
         super(plugin, title, getMenuLayout(plugin));
         this.positions = positions;
         this.type = type;
     }
 
     @NotNull
-    private static String[] getMenuLayout(@NotNull HuskHomesGui plugin) {
+    private static String[] getMenuLayout(@NotNull win.obydux.huskhomes.menu.HuskHomesMenu plugin) {
         return Arrays.copyOfRange(new String[]{
                         "ppppppppp",
                         "ppppppppp",
@@ -124,7 +123,7 @@ public class ListMenu<T extends SavedPosition> extends Menu {
 
     // Get the GUI group of position select buttons
     @NotNull
-    private GuiElementGroup getPositionGroup(@NotNull HuskHomesGui plugin, @NotNull List<T> positions) {
+    private GuiElementGroup getPositionGroup(@NotNull win.obydux.huskhomes.menu.HuskHomesMenu plugin, @NotNull List<T> positions) {
         final GuiElementGroup group = new GuiElementGroup('p');
         positions.forEach(position -> group.addElement(getPositionButton(plugin, position)));
         return group;
@@ -133,7 +132,7 @@ public class ListMenu<T extends SavedPosition> extends Menu {
     // Get a position select button for a SavedPosition
     @SuppressWarnings("unchecked")
     @NotNull
-    private DynamicGuiElement getPositionButton(@NotNull HuskHomesGui plugin, @NotNull SavedPosition position) {
+    private DynamicGuiElement getPositionButton(@NotNull win.obydux.huskhomes.menu.HuskHomesMenu plugin, @NotNull SavedPosition position) {
         return new DynamicGuiElement('e', (viewer) -> new StaticGuiElement('e',
                 new ItemStack(getPositionMaterial(position).orElse(plugin.getSettings().getDefaultIcon())),
                 (click) -> {

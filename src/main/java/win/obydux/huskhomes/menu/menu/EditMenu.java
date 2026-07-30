@@ -17,12 +17,11 @@
  *  limitations under the License.
  */
 
-package pro.obydux.huskhomes.gui.menu;
+package win.obydux.huskhomes.menu.menu;
 
 import de.themoep.inventorygui.InventoryGui;
 import de.themoep.inventorygui.StaticGuiElement;
 import net.wesjd.anvilgui.AnvilGUI;
-import pro.obydux.huskhomes.gui.HuskHomesGui;
 import net.william278.huskhomes.position.Home;
 import net.william278.huskhomes.position.SavedPosition;
 import net.william278.huskhomes.position.Warp;
@@ -36,7 +35,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.function.Consumer;
 
-import static pro.obydux.huskhomes.gui.config.Locales.textWrap;
+import static win.obydux.huskhomes.menu.config.Locales.textWrap;
 
 /**
  * A menu for editing a saved position
@@ -57,7 +56,7 @@ public class EditMenu<T extends SavedPosition> extends Menu {
         };
     }
 
-    private EditMenu(@NotNull HuskHomesGui plugin, @NotNull T position, @NotNull ListMenu<T> parentMenu, int pageNumber) {
+    private EditMenu(@NotNull win.obydux.huskhomes.menu.HuskHomesMenu plugin, @NotNull T position, @NotNull ListMenu<T> parentMenu, int pageNumber) {
         super(plugin, plugin.getLocales().getLocale(
                         position instanceof Home ? "home_editor_title" : "warp_editor_title", position.getName()),
                 getEditMenuLayout());
@@ -67,13 +66,13 @@ public class EditMenu<T extends SavedPosition> extends Menu {
         this.pageNumber = pageNumber;
     }
 
-    public static EditMenu<Home> home(@NotNull HuskHomesGui plugin, @NotNull Home home,
+    public static EditMenu<Home> home(@NotNull win.obydux.huskhomes.menu.HuskHomesMenu plugin, @NotNull Home home,
                                       @NotNull ListMenu<Home> parentMenu,
                                       int pageNumber) {
         return new EditMenu<>(plugin, home, parentMenu, pageNumber);
     }
 
-    public static EditMenu<Warp> warp(@NotNull HuskHomesGui plugin, @NotNull Warp warp,
+    public static EditMenu<Warp> warp(@NotNull win.obydux.huskhomes.menu.HuskHomesMenu plugin, @NotNull Warp warp,
                                       @NotNull ListMenu<Warp> parentMenu,
                                       int pageNumber) {
         return new EditMenu<>(plugin, warp, parentMenu, pageNumber);

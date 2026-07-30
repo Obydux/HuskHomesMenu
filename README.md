@@ -1,8 +1,8 @@
 <!--suppress ALL -->
 <p align="center">
-    <img src="images/banner.png" alt="Updated-HuskHomesGUI" />
-    <a href="https://github.com/Obydux/Updated-HuskHomesGUI/actions/workflows/java_ci.yml">
-        <img src="https://img.shields.io/github/actions/workflow/status/Obydux/Updated-HuskHomesGUI/java_ci.yml?branch=master&logo=github"/>
+    <img src="images/banner.png" alt="HuskHomesMenu" />
+    <a href="https://github.com/Obydux/HuskHomesMenu/actions/workflows/java_ci.yml">
+        <img src="https://img.shields.io/github/actions/workflow/status/Obydux/HuskHomesMenu/java_ci.yml?branch=master&logo=github"/>
     </a>
     <a href="https://discord.gg/sQ6VmWDzN3">
         <img src="https://img.shields.io/discord/1383468620566237234.svg?label=&logo=discord&logoColor=fff&color=7389D8&labelColor=6A7EC2" />
@@ -15,12 +15,12 @@
         <a href="https://github.com/WiIIiam278/HuskHomes/">Homes</a>
     </b> — 
     <b>
-        <a href="https://github.com/Obydux/Updated-HuskHomesGUI/issues">Issues</a>
+        <a href="https://github.com/Obydux/HuskHomesMenu/issues">Issues</a>
     </b>
 </p>
 <br>
 
-**HuskHomesGUI** is a GUI add-on plugin for [HuskHomes v4.6.3+](https://github.com/WiIIiam278/HuskHomes) on Paper servers. It provides a chest-style graphical user interface (GUI) for browsing home and warp lists as well as editing homes.
+**HuskHomesMenu** is a GUI add-on plugin for [HuskHomes v4.6.3+](https://github.com/WiIIiam278/HuskHomes) on Paper servers. It provides a chest-style graphical user interface (GUI) for browsing home and warp lists as well as editing homes.
 
 It replaces the chat menu system that is built into HuskHomes when you type `/homelist`, `/phomelist` or `/warplist` and includes anvil-based rename and description editing functionality to allow for easy editing.
 
@@ -30,7 +30,7 @@ If you prefer to browse using a menu, or would like better support for Bedrock p
 
 ## Setup
 1. Have HuskHomes v4.6.3+ installed on your server(s)
-2. Download HuskHomesGUI and place it in your server's `~/plugins/` folder
+2. Download HuskHomesMenu and place it in your server's `~/plugins/` folder
 
 ## Usage
 Simply use the list commands you are familiar with to bring up a list of homes or warps.

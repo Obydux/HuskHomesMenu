@@ -17,22 +17,22 @@
  *  limitations under the License.
  */
 
-package pro.obydux.huskhomes.gui;
+package win.obydux.huskhomes.menu;
 
 import net.kyori.adventure.platform.AudienceProvider;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import net.william278.desertwell.util.Version;
-import pro.obydux.huskhomes.gui.command.HuskHomesGuiCommand;
-import pro.obydux.huskhomes.gui.config.Locales;
-import pro.obydux.huskhomes.gui.config.Settings;
-import pro.obydux.huskhomes.gui.listener.ListListener;
+import win.obydux.huskhomes.menu.command.HuskHomesMenuCommand;
+import win.obydux.huskhomes.menu.config.Locales;
+import win.obydux.huskhomes.menu.config.Settings;
+import win.obydux.huskhomes.menu.listener.ListListener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 import java.util.logging.Level;
 
-public class HuskHomesGui extends JavaPlugin implements HuskHomesGuiPlugin {
+public class HuskHomesMenu extends JavaPlugin implements HuskHomesMenuPlugin {
     private BukkitAudiences adventure;
     private Settings settings;
     private Locales locales;
@@ -46,7 +46,7 @@ public class HuskHomesGui extends JavaPlugin implements HuskHomesGuiPlugin {
 
         // Register event listener and command
         getServer().getPluginManager().registerEvents(new ListListener(this), this);
-        Objects.requireNonNull(getCommand("huskhomesgui")).setExecutor(new HuskHomesGuiCommand(this));
+        Objects.requireNonNull(getCommand("huskhomesmenu")).setExecutor(new HuskHomesMenuCommand(this));
 
         // Log to console
         getLogger().log(Level.INFO, "Successfully enabled HuskHomes v" + getDescription().getVersion());

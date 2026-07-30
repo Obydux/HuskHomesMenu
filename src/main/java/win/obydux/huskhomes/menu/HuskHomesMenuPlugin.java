@@ -17,13 +17,13 @@
  *  limitations under the License.
  */
 
-package pro.obydux.huskhomes.gui;
+package win.obydux.huskhomes.menu;
 
 import net.kyori.adventure.platform.AudienceProvider;
 import net.william278.annotaml.Annotaml;
 import net.william278.desertwell.util.Version;
-import pro.obydux.huskhomes.gui.config.Locales;
-import pro.obydux.huskhomes.gui.config.Settings;
+import win.obydux.huskhomes.menu.config.Locales;
+import win.obydux.huskhomes.menu.config.Settings;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 
-public interface HuskHomesGuiPlugin {
+public interface HuskHomesMenuPlugin {
 
     @NotNull
     default Locales loadLocales() {
