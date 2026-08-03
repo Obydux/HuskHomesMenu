@@ -29,7 +29,7 @@ import java.util.Optional;
 
 @YamlFile(header = """
         ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-        ┃     HuskHomesMenu Config      ┃
+        ┃     HuskHomesMenu Config     ┃
         ┃    Developed by William278   ┃
         ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
         ┗╸ Information: https://william278.net/project/huskhomesgui""")

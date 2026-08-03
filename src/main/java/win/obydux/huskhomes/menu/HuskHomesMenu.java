@@ -57,7 +57,7 @@ public class HuskHomesMenu extends JavaPlugin implements HuskHomesMenuPlugin {
         command.register();
 
         // Log to console
-        getLogger().log(Level.INFO, "Successfully enabled HuskHomesMenu v" + getDescription().getVersion());
+        getLogger().log(Level.INFO, "Successfully enabled HuskHomesMenu v" + getPluginMeta().getVersion());
     }
 
     public void reloadConfigFiles() {
@@ -74,7 +74,7 @@ public class HuskHomesMenu extends JavaPlugin implements HuskHomesMenuPlugin {
     @Override
     @NotNull
     public Version getPluginVersion() {
-        return Version.fromString(getDescription().getVersion(), "-");
+        return Version.fromString(getPluginMeta().getVersion(), "-");
     }
 
     @Override

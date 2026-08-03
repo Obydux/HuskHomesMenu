@@ -59,17 +59,12 @@ tasks.shadowJar {
         attributes["paperweight-mappings-namespace"] = "mojang"
     }
 
-    relocate("org.apache.commons.io", "pro.obydux.huskhomes.gui.libraries.commons.io")
-    relocate("org.apache.commons.text", "pro.obydux.huskhomes.gui.libraries.commons.text")
-    relocate("org.apache.commons.lang3", "pro.obydux.huskhomes.gui.libraries.commons.lang3")
-    relocate("org.jetbrains", "pro.obydux.huskhomes.gui.libraries")
-    relocate("org.intellij", "pro.obydux.huskhomes.gui.libraries")
-    relocate("de.themoep.inventorygui", "pro.obydux.huskhomes.gui.libraries.inventorygui")
-    relocate("de.themoep.minedown", "pro.obydux.huskhomes.gui.libraries.minedown")
-    relocate("net.wesjd.anvilgui", "pro.obydux.huskhomes.gui.libraries.anvilgui")
-    relocate("net.william278.annotaml", "pro.obydux.huskhomes.gui.libraries.annotaml")
-    relocate("net.william278.desertwell", "pro.obydux.huskhomes.gui.libraries.desertwell")
-    relocate("dev.dejvokep", "pro.obydux.huskhomes.gui.libraries.boostedyaml")
+    relocate("de.themoep.inventorygui", "win.obydux.huskhomes.menu.libraries.inventorygui")
+    relocate("de.themoep.minedown", "win.obydux.huskhomes.menu.libraries.minedown")
+    relocate("net.wesjd.anvilgui", "win.obydux.huskhomes.menu.libraries.anvilgui")
+    relocate("net.william278.annotaml", "win.obydux.huskhomes.menu.libraries.annotaml")
+    relocate("net.william278.desertwell", "win.obydux.huskhomes.menu.libraries.desertwell")
+    relocate("dev.dejvokep", "win.obydux.huskhomes.menu.libraries.boostedyaml")
 
     destinationDirectory.set(file("$rootDir/target"))
     archiveClassifier.set("")

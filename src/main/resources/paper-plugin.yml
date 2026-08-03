@@ -2,10 +2,11 @@ name: HuskHomesMenu
 main: win.obydux.huskhomes.menu.HuskHomesMenu
 version: '${version}'
 description: 'Display HuskHomes homes and warps in a GUI'
-api-version: '1.20.5'
+api-version: '1.20.6'
 folia-supported: true
 authors: ['William278', 'Obydux']
 website: 'https://github.com/Obydux/HuskHomesMenu'
+loader: win.obydux.huskhomes.menu.HuskHomesMenuLoader
 dependencies:
   server:
     HuskHomes:

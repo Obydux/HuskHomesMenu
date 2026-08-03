@@ -20,7 +20,7 @@
 </p>
 <br>
 
-**HuskHomesMenu** is a GUI add-on plugin for [HuskHomes](https://github.com/WiIIiam278/HuskHomes) on 1.20.5+ Paper servers. It provides a chest-style graphical user interface (GUI) for browsing home and warp lists as well as editing homes.
+**HuskHomesMenu** is a GUI add-on plugin for [HuskHomes](https://github.com/WiIIiam278/HuskHomes) on 1.20.6+ Paper servers. It provides a chest-style graphical user interface (GUI) for browsing home and warp lists as well as editing homes.
 
 It replaces the chat menu system that is built into HuskHomes when you type `/homelist`, `/phomelist` or `/warplist` and includes anvil-based rename and description editing functionality to allow for easy editing.
 
