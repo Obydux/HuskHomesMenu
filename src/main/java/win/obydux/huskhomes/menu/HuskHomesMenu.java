@@ -23,12 +23,12 @@ import net.kyori.adventure.platform.AudienceProvider;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import net.william278.desertwell.util.Version;
 import net.william278.huskhomes.BukkitHuskHomes;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 import win.obydux.huskhomes.menu.command.HuskHomesMenuCommand;
 import win.obydux.huskhomes.menu.config.Locales;
 import win.obydux.huskhomes.menu.config.Settings;
 import win.obydux.huskhomes.menu.listener.ListListener;
-import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 import java.util.logging.Level;
@@ -39,6 +39,7 @@ public class HuskHomesMenu extends JavaPlugin implements HuskHomesMenuPlugin {
     private Settings settings;
     private Locales locales;
 
+    @Override
     public void onEnable() {
         // Load audiences
         this.adventure = BukkitAudiences.create(this);
@@ -48,9 +49,12 @@ public class HuskHomesMenu extends JavaPlugin implements HuskHomesMenuPlugin {
         // Load settings and locales
         this.reloadConfigFiles();
 
-        // Register event listener and command
+        // Register event listener
         getServer().getPluginManager().registerEvents(new ListListener(this), this);
-        Objects.requireNonNull(getCommand("huskhomesmenu")).setExecutor(new HuskHomesMenuCommand(this));
+
+        // Register command using Brigadier
+        HuskHomesMenuCommand command = new HuskHomesMenuCommand(this);
+        command.register();
 
         // Log to console
         getLogger().log(Level.INFO, "Successfully enabled HuskHomesMenu v" + getDescription().getVersion());

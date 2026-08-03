@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
 
 @YamlFile(header = """
         ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-        ┃     HuskHomesMenu Locales     ┃
+        ┃     HuskHomesMenu Locales    ┃
         ┃    Developed by William278   ┃
         ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
         ┗╸ Formatted in MineDown: https://github.com/Phoenix616/MineDown""",
