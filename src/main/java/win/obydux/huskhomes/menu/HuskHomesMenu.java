@@ -22,6 +22,7 @@ package win.obydux.huskhomes.menu;
 import net.kyori.adventure.platform.AudienceProvider;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import net.william278.desertwell.util.Version;
+import net.william278.huskhomes.BukkitHuskHomes;
 import win.obydux.huskhomes.menu.command.HuskHomesMenuCommand;
 import win.obydux.huskhomes.menu.config.Locales;
 import win.obydux.huskhomes.menu.config.Settings;
@@ -34,12 +35,15 @@ import java.util.logging.Level;
 
 public class HuskHomesMenu extends JavaPlugin implements HuskHomesMenuPlugin {
     private BukkitAudiences adventure;
+    private BukkitHuskHomes huskHomes;
     private Settings settings;
     private Locales locales;
 
     public void onEnable() {
         // Load audiences
         this.adventure = BukkitAudiences.create(this);
+        this.huskHomes = Objects.requireNonNull((BukkitHuskHomes) getServer().getPluginManager()
+                .getPlugin("HuskHomes"), "HuskHomes plugin is required");
 
         // Load settings and locales
         this.reloadConfigFiles();
@@ -49,7 +53,7 @@ public class HuskHomesMenu extends JavaPlugin implements HuskHomesMenuPlugin {
         Objects.requireNonNull(getCommand("huskhomesmenu")).setExecutor(new HuskHomesMenuCommand(this));
 
         // Log to console
-        getLogger().log(Level.INFO, "Successfully enabled HuskHomes v" + getDescription().getVersion());
+        getLogger().log(Level.INFO, "Successfully enabled HuskHomesMenu v" + getDescription().getVersion());
     }
 
     public void reloadConfigFiles() {
@@ -79,5 +83,10 @@ public class HuskHomesMenu extends JavaPlugin implements HuskHomesMenuPlugin {
     @NotNull
     public Locales getLocales() {
         return locales;
+    }
+
+    @NotNull
+    public BukkitHuskHomes getHuskHomes() {
+        return huskHomes;
     }
 }

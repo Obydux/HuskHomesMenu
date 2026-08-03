@@ -23,7 +23,6 @@ import de.themoep.inventorygui.*;
 import net.william278.huskhomes.position.Home;
 import net.william278.huskhomes.position.SavedPosition;
 import net.william278.huskhomes.position.Warp;
-import net.william278.huskhomes.teleport.TeleportationException;
 import net.william278.huskhomes.user.OnlineUser;
 import net.william278.huskhomes.user.User;
 import org.bukkit.Material;
@@ -143,15 +142,12 @@ public class ListMenu<T extends SavedPosition> extends Menu {
                                 final ItemStack newItem = player.getItemOnCursor();
                                 if (newItem.getType() == Material.AIR) {
                                     // teleport
-                                    this.close(user);
-                                    this.destroy();
-
-                                    try {
-                                        api.teleportBuilder(user)
-                                                .target(position)
-                                                .toTimedTeleport()
-                                                .execute();
-                                    } catch (TeleportationException ignored) {
+                                    if (api.teleportBuilder(user)
+                                            .target(position)
+                                            .actions(getTeleportAction())
+                                            .buildAndComplete(true, position.getName())) {
+                                        this.close(user);
+                                        this.destroy();
                                     }
                                     return true;
                                 }
@@ -234,4 +230,12 @@ public class ListMenu<T extends SavedPosition> extends Menu {
         ));
     }
 
+    @NotNull
+    private net.william278.huskhomes.util.TransactionResolver.Action getTeleportAction() {
+        return switch (type) {
+            case HOME -> net.william278.huskhomes.util.TransactionResolver.Action.HOME_TELEPORT;
+            case PUBLIC_HOME -> net.william278.huskhomes.util.TransactionResolver.Action.PUBLIC_HOME_TELEPORT;
+            case WARP -> net.william278.huskhomes.util.TransactionResolver.Action.WARP_TELEPORT;
+        };
+    }
 }

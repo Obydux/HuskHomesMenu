@@ -22,10 +22,12 @@ package win.obydux.huskhomes.menu.menu;
 import de.themoep.inventorygui.InventoryGui;
 import de.themoep.inventorygui.StaticGuiElement;
 import net.wesjd.anvilgui.AnvilGUI;
+import net.william278.huskhomes.BukkitHuskHomes;
 import net.william278.huskhomes.position.Home;
 import net.william278.huskhomes.position.SavedPosition;
 import net.william278.huskhomes.position.Warp;
 import net.william278.huskhomes.user.OnlineUser;
+import net.william278.huskhomes.util.TransactionResolver;
 import net.william278.huskhomes.util.ValidationException;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -238,9 +240,20 @@ public class EditMenu<T extends SavedPosition> extends Menu {
                                         }
 
                                         try {
+                                            final OnlineUser user = api.adaptUser(player);
+                                            final BukkitHuskHomes huskHomesPlugin = plugin.getHuskHomes();
+
+                                            if (huskHomesPlugin.isUsingEconomy()) {
+                                                if (!huskHomesPlugin.validateTransaction(user, TransactionResolver.Action.MAKE_HOME_PUBLIC)) {
+                                                    return;
+                                                }
+                                                huskHomesPlugin.performTransaction(user, TransactionResolver.Action.MAKE_HOME_PUBLIC);
+                                            }
+
                                             api.setHomePrivacy(home, true);
                                             home.setPublic(true);
-                                            this.show(api.adaptUser(player));
+
+                                            this.show(user);
                                         } catch (ValidationException e) {
                                             player.sendMessage(e.getMessage());
                                         }
@@ -322,5 +335,4 @@ public class EditMenu<T extends SavedPosition> extends Menu {
             ));
         };
     }
-
 }
